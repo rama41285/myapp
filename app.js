@@ -1,6 +1,20 @@
-console.log('Hello World .. this is the first node js application')
-function greetNewUser (userName) {
-  const uName = userName
-  console.log('Greeting new user successfully: ' + uName)
-}
-greetNewUser('ramalinr')
+var http = require("http");
+port = process.env.PORT || process.argv[2] || 8080;
+
+// create a simple server
+let server = http.createServer(function (req, res) {
+ 
+        res.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        res.write('hello heroku!', 'utf-8');
+        res.end();
+ 
+    });
+ 
+// listen on the port
+server.listen(port, function () {
+ 
+    console.log('app up on port: ' + port);
+ 
+});
